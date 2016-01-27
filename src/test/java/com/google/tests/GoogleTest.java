@@ -2,17 +2,15 @@ package com.google.tests;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.google.commons.Properties;
 import com.google.pages.GoogleResultsPage;
@@ -32,25 +30,25 @@ public class GoogleTest {
 
 	@AfterClass
 	public void oneTimeTearDown() {
-		//driver.quit();
+		driver.quit();
 	}
 
 	@BeforeMethod
 	public void setUp() {
-		driver.get(Properties.URL_TEST_GTRANSLATE);
+		driver.get(Properties.ENG_GOOGLE_PAGE_URL);
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		driver.get(Properties.SERVER_URL); //After method navigate to Google home page
+		driver.get(Properties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
 	}
 	
 	@Test
 	public void googleTranslateTest() throws Exception{
-		System.out.println("googleTranslateTest()");
+		System.out.println("Test google translate.");
 		
 		GoogleSearchPage search = new GoogleSearchPage(driver);
-		search.searchDataInGoogle("Test google translate");
+		search.searchDataInGoogle("translate google com");
 		
 		GoogleResultsPage result = new GoogleResultsPage(driver);
 		result.navigateToGoogleTranslate();
@@ -63,6 +61,36 @@ public class GoogleTest {
 		translate.changLanguage();
 		//Verification: Translated text was changed
 		Assert.assertTrue(!(translate.getDataForTranslation().equals(translate.getTranslatedData())));
+	}
+	
+		
+	@Test
+	public void googleNavigationTest() throws Exception{
+		System.out.println("Test navigation.");
+		
+		GoogleSearchPage search = new GoogleSearchPage(driver);
+		search.searchDataInGoogle("Apple");
+		
+		GoogleResultsPage result = new GoogleResultsPage(driver);
+		int countResultsPage1 = result.getNumberOfResults();
+		System.out.println(countResultsPage1);
+			
+		result = result.navigateToGoogleResultPage(2);
+		int countResultsPage2 = result.getNumberOfResults();
+		System.out.println(countResultsPage2);
+		
+		result = result.navigateToGoogleResultPage(10);
+		int countResultsPage10 = result.getNumberOfResults();
+		System.out.println(countResultsPage10);
+		
+		//Verification: Results of Page 2 and 10
+		new SoftAssert().assertTrue(countResultsPage2==countResultsPage10);
+		
+		//Verification: Results of Page 1 and 10
+		new SoftAssert().assertTrue(countResultsPage1==countResultsPage10);
+		
+		//Verification: Results of Page 1 and 2
+		new SoftAssert().assertTrue(countResultsPage1==countResultsPage2);
 	}
 	
 }
