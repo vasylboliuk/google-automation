@@ -37,6 +37,7 @@ public class GoogleResultsPage {
 	public GoogleResultsPage navigateToGoogleResultPage(int pageNumber) throws Exception{
 		driver.findElement(By.xpath("//a[@class='fl' and contains(text(),'"+pageNumber+"')]")).click();
 		new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='cur' and contains(text(),'"+pageNumber+"')]")));
+		new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='rc']")));
 		return new GoogleResultsPage(driver);
 		
 	}
