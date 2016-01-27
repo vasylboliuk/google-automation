@@ -1,11 +1,9 @@
 package com.google.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import com.google.pages.GoogleResultsPage;
 
@@ -14,7 +12,7 @@ public class GoogleSearchPage {
 	protected WebDriver driver;
 	//
 	@FindBy(name="q")
-	WebElement googleSearchField;
+	private WebElement googleSearchField;
 	//
 	@FindBy(name ="btnG")
 	private WebElement googleSearchButton;
@@ -29,21 +27,21 @@ public class GoogleSearchPage {
 		
 	
 	//Click on Google Search field
-	public void clickSearchField() {
+	private void clickSearchField() {
 		this.googleSearchField.click();
 	}
 	//Clear data
-	public void clearSearchField() {
+	private void clearSearchField() {
 		this.googleSearchField.clear();;
 	}
 	
 	//Type searching text
-	public void setSearchingText(String text) {
+	private void setSearchingText(String text) {
 		this.googleSearchField.sendKeys(text);
 	}
 	
 	//Click Submit button
-	public void clickSearchButton() {
+	private void clickSearchButton() {
 		this.googleSearchButton.click();
 	}
 	
