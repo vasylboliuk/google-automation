@@ -19,7 +19,7 @@ import com.google.pages.GoogleTranslatePage;
 public class GoogleTest {
 	private WebDriver driver;
 	
-	@BeforeClass
+	@BeforeClass(groups = {"group-one"})
 	public void oneTimeSetUp() {
 		System.setProperty("webdriver.firefox.bin", Properties.PATH_TO_FIREFOX_34);
 		driver = new FirefoxDriver();
@@ -27,22 +27,22 @@ public class GoogleTest {
 		driver.manage().timeouts().implicitlyWait(Properties.WAITERS_TIMEOUT, TimeUnit.SECONDS);
 	}
 
-	@AfterClass
+	@AfterClass(groups = {"group-one"})
 	public void oneTimeTearDown() {
 		driver.quit();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(groups = {"group-one"})
 	public void setUp() {
 		driver.get(Properties.ENG_GOOGLE_PAGE_URL);
 	}
 
-	@AfterMethod
+	@AfterMethod(groups = {"group-one"})
 	public void tearDown() {
 		driver.get(Properties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
 	}
 	
-	@Test
+	@Test(groups = {"group-one"})
 	public void googleTranslateTest() throws Exception{
 		System.out.println("Test google translate.");
 		
