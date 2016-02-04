@@ -16,7 +16,7 @@ import com.google.commons.Properties;
 import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
 
-public class GoogleTest2 {
+public class TestGoogleNavigation {
 	private WebDriver driver;
 	
 	@BeforeClass
