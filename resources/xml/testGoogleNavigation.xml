@@ -3,7 +3,7 @@
 <suite name="Suite2">
 	<test name="Test2">
 		<classes>
-			<class name="com.google.tests.GoogleTest2"/>
+			<class name="com.google.tests.TestGoogleNavigation"/>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
