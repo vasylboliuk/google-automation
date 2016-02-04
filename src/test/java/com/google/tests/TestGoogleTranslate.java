@@ -11,10 +11,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.google.commons.Properties;
 import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
 import com.google.pages.GoogleTranslatePage;
+
+import com.google.commons.Properties;
 
 public class TestGoogleTranslate {
 	private WebDriver driver;

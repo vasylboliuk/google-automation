@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -12,9 +11,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.google.commons.Properties;
 import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
+
+import com.google.commons.Properties;
 
 public class TestGoogleNavigation {
 	private WebDriver driver;
