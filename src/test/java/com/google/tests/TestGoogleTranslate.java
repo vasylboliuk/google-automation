@@ -16,7 +16,7 @@ import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
 import com.google.pages.GoogleTranslatePage;
 
-public class GoogleTest {
+public class TestGoogleTranslate {
 	private WebDriver driver;
 	
 	@BeforeClass(groups = {"group-one"})
