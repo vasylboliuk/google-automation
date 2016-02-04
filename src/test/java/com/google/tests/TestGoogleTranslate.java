@@ -15,17 +15,17 @@ import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
 import com.google.pages.GoogleTranslatePage;
 
-import com.google.commons.Properties;
+import com.google.commons.TestProperties;
 
 public class TestGoogleTranslate {
 	private WebDriver driver;
 	
 	@BeforeClass(groups = {"group-one"})
 	public void oneTimeSetUp() {
-		System.setProperty("webdriver.firefox.bin", Properties.PATH_TO_FIREFOX_34);
+		System.setProperty("webdriver.firefox.bin", TestProperties.PATH_TO_FIREFOX_34);
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Properties.WAITERS_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestProperties.WAITERS_TIMEOUT, TimeUnit.SECONDS);
 	}
 
 	@AfterClass(groups = {"group-one"})
@@ -35,12 +35,12 @@ public class TestGoogleTranslate {
 
 	@BeforeMethod(groups = {"group-one"})
 	public void setUp() {
-		driver.get(Properties.ENG_GOOGLE_PAGE_URL);
+		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL);
 	}
 
 	@AfterMethod(groups = {"group-one"})
 	public void tearDown() {
-		driver.get(Properties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
+		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
 	}
 	
 	@Test(groups = {"group-one"})
