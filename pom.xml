@@ -24,17 +24,17 @@
     <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
-			<version>2.48.2</version>
+			<version>2.51.0</version>
 	</dependency>
 	 <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-firefox-driver</artifactId>
-			<version>2.48.2</version>
+			<version>2.51.0</version>
 	</dependency>
 	<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.48.2</version>
+			<version>2.51.0</version>
 	</dependency>
 	
     <dependency>
@@ -55,8 +55,8 @@
 			<version>2.19</version>
 			<configuration>
 				<suiteXmlFiles>
-					<suiteXmlFile>testNG_01.xml</suiteXmlFile>
-					<suiteXmlFile>testNG_02.xml</suiteXmlFile>
+					<suiteXmlFile>testGoogleTranslate.xml</suiteXmlFile>
+					<suiteXmlFile>testGoogleNavigation.xml</suiteXmlFile>
 				</suiteXmlFiles>
 				<reportsDirectory>${testng.reports.directory}</reportsDirectory>
 			</configuration>
