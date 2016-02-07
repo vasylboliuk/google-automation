@@ -22,10 +22,10 @@ public class TestGoogleTranslate {
 	
 	@BeforeClass(groups = {"group-one"})
 	public void oneTimeSetUp() {
-		System.setProperty("webdriver.firefox.bin", TestProperties.PATH_TO_FIREFOX_34);
+		//System.setProperty("webdriver.firefox.bin", "c:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(TestProperties.WAITERS_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestProperties.getWaiterTimeout(), TimeUnit.SECONDS);
 	}
 
 	@AfterClass(groups = {"group-one"})
@@ -35,12 +35,12 @@ public class TestGoogleTranslate {
 
 	@BeforeMethod(groups = {"group-one"})
 	public void setUp() {
-		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL);
+		driver.get(TestProperties.getGooglePageUrl());
 	}
 
 	@AfterMethod(groups = {"group-one"})
 	public void tearDown() {
-		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
+		driver.get(TestProperties.getGooglePageUrl()); //After method navigate to Google home page
 	}
 	
 	@Test(groups = {"group-one"})

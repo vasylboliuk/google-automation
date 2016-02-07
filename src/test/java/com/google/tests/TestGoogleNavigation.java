@@ -13,7 +13,6 @@ import org.testng.asserts.SoftAssert;
 
 import com.google.pages.GoogleResultsPage;
 import com.google.pages.GoogleSearchPage;
-
 import com.google.commons.TestProperties;
 
 public class TestGoogleNavigation {
@@ -21,10 +20,10 @@ public class TestGoogleNavigation {
 	
 	@BeforeClass
 	public void oneTimeSetUp() {
-		System.setProperty("webdriver.firefox.bin", TestProperties.PATH_TO_FIREFOX_34);
+		//System.setProperty("webdriver.firefox.bin", "c:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(TestProperties.WAITERS_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestProperties.getWaiterTimeout(), TimeUnit.SECONDS);
 	}
 
 	@AfterClass
@@ -34,18 +33,18 @@ public class TestGoogleNavigation {
 
 	@BeforeMethod
 	public void setUp() {
-		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL);
+		driver.get(TestProperties.getGooglePageUrl());
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		driver.get(TestProperties.ENG_GOOGLE_PAGE_URL); //After method navigate to Google home page
+		driver.get(TestProperties.getGooglePageUrl()); //After method navigate to Google home page
 	}
 	
 	@Test
 	public void googleNavigationTest() throws Exception{
 		System.out.println("Test navigation.");
-		
+				
 		GoogleSearchPage search = new GoogleSearchPage(driver);
 		search.searchDataInGoogle("Apple");
 		
