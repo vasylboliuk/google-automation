@@ -14,7 +14,7 @@ public class TestGoogleTranslate extends TestSetup {
 
 	@Test(groups = { "group-one" })
 	public void googleTranslateTest() throws Exception {
-		logger.info("Test google translate.");
+		logger.info("Start: Test google translate.");
 
 		GoogleSearchPage search = new GoogleSearchPage(getDriver());
 		search.searchDataInGoogle("translate google com");

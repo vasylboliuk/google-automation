@@ -13,22 +13,22 @@ public class TestGoogleNavigation extends TestSetup {
 
 	@Test
 	public void googleNavigationTest() throws Exception {
-		logger.info("Test navigation.");
+		logger.info("Start: Test navigation on google page.");
 
 		GoogleSearchPage search = new GoogleSearchPage(getDriver());
 		search.searchDataInGoogle("Apple");
 
 		GoogleResultsPage result = new GoogleResultsPage(getDriver());
 		int countResultsPage1 = result.getNumberOfResults();
-		logger.info(String.valueOf(countResultsPage1));
+		logger.info("Count of result links in 1 page" + String.valueOf(countResultsPage1));
 
 		result = result.navigateToGoogleResultPage(2);
 		int countResultsPage2 = result.getNumberOfResults();
-		logger.info(String.valueOf(countResultsPage2));
+		logger.info("Count of result links in 2 page:" + String.valueOf(countResultsPage2));
 
 		result = result.navigateToGoogleResultPage(10);
 		int countResultsPage10 = result.getNumberOfResults();
-		logger.info(String.valueOf(countResultsPage10));
+		logger.info("Count of result links in 10 page:" + String.valueOf(countResultsPage10));
 
 		// Verification: Results of Page 2 and 10
 		new SoftAssert().assertTrue(countResultsPage2 == countResultsPage10);
@@ -39,7 +39,7 @@ public class TestGoogleNavigation extends TestSetup {
 		// Verification: Results of Page 1 and 2
 		new SoftAssert().assertTrue(countResultsPage1 == countResultsPage2);
 
-		logger.info("END: Test navigation.");
+		logger.info("END: Test navigation on google page.");
 
 	}
 
