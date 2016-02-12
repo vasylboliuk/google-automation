@@ -1,13 +1,11 @@
 package com.google.commons;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class TestProperties {
 
-	static Properties props;
-	static FileInputStream in;
+	static private Properties props;
 
 	private static void readProperties() {
 		if (props != null) {
@@ -16,14 +14,9 @@ public class TestProperties {
 
 		props = new Properties();
 
-		try {
-			InputStream myIs = TestProperties.class.getResourceAsStream("/config/config.properties");
+		try (InputStream myIs = TestProperties.class.getResourceAsStream("/config/config.properties")) {
 			props.load(myIs);
-			myIs.close();
-			// in = new
-			// FileInputStream("src/main/resources/config/config.properties");
-			// props.load(in);
-			// in.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
