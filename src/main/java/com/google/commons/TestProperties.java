@@ -18,7 +18,7 @@ public class TestProperties {
 			props.load(myIs);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
