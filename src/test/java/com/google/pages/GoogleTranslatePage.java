@@ -63,12 +63,19 @@ public class GoogleTranslatePage {
 
 	}
 
-	// Business Logic
+	/**
+	 * Change translation language to first language in panel.
+	 * 
+	 */
 	public void changLanguage() {
 		clicklistBoxLanguages();
 		selectLanguage();
 	}
 
+	/**
+	 * Set data for translation in Google Translator.
+	 * 
+	 */
 	public void setTranslateData(String dataForTranslate) throws Exception {
 		this.dataForTranslate = dataForTranslate;
 		clickLeftField();

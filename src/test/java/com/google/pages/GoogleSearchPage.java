@@ -38,7 +38,6 @@ public class GoogleSearchPage {
 		this.googleSearchButton.click();
 	}
 
-	// Business Logic
 	private void setSearchData(String searchData) throws Exception {
 		clickSearchField();
 		clearSearchField();
@@ -46,6 +45,11 @@ public class GoogleSearchPage {
 		clickSearchButton();
 	}
 
+	/**
+	 * Set search data to Google search field and click on search button.
+	 * 
+	 * @return result page after searching.
+	 */
 	public GoogleResultsPage searchDataInGoogle(String searchData) throws Exception {
 		setSearchData(searchData);
 		return new GoogleResultsPage(driver);

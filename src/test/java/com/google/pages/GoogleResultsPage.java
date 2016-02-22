@@ -24,11 +24,17 @@ public class GoogleResultsPage {
 		driver.findElement(By.xpath("//div[@class='g'][1]//ancestor::h3//a")).click();
 	}
 
+	/**
+	 * Navigate to Google Translate page
+	 */
 	public GoogleTranslatePage navigateToGoogleTranslate() throws Exception {
 		clickOnResultLinkInPage();
 		return new GoogleTranslatePage(driver);
 	}
 
+	/**
+	 * Navigate to Google Result page with the given page number.
+	 */
 	public GoogleResultsPage navigateToGoogleResultPage(int pageNumber) throws Exception {
 		driver.findElement(By.xpath("//a[@class='fl' and contains(text(),'" + pageNumber + "')]")).click();
 		new WebDriverWait(driver, 5).until(ExpectedConditions
@@ -39,6 +45,11 @@ public class GoogleResultsPage {
 
 	}
 
+	/**
+	 * Get the number of results on page.
+	 * 
+	 * @return this number of results.
+	 */
 	public int getNumberOfResults() {
 		return driver.findElements(By.xpath("//div[@class='rc']")).size();
 	}
