@@ -22,12 +22,10 @@ public class TestGoogleTranslate extends TestSetup {
 		result.navigateToGoogleTranslate();
 		GoogleTranslatePage translate = new GoogleTranslatePage(getDriver());
 		translate.setTranslateData("Apple");
-		// Verification: The same text is displayed
 		Assert.assertEquals(translate.getDataForTranslation(), translate.getTranslatedData(),
 				"Translation data are not same");
 
 		translate.changLanguage();
-		// Verification: Translated text was changed
 		Assert.assertNotEquals(translate.getDataForTranslation(), translate.getTranslatedData(),
 				"Translation data are same");
 
