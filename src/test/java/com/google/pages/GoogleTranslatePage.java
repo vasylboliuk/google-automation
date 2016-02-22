@@ -9,19 +9,19 @@ import org.openqa.selenium.support.PageFactory;
 public class GoogleTranslatePage {
 
 	protected WebDriver driver;
-	//
+
 	@FindBy(id = "source")
 	private WebElement translateLeftField;
-	//
+
 	@FindBy(id = "result_box")
 	private WebElement translateRightField;
-	//
+
 	@FindBy(id = "gt-tl-gms")
 	private WebElement listBoxLanguages;
-	//
+
 	@FindBy(xpath = "//span[@id='result_box']/span")
 	private WebElement translatedData;
-	//
+
 	@FindBy(id = "gt-submit")
 	private WebElement translateButton;
 
@@ -30,7 +30,6 @@ public class GoogleTranslatePage {
 
 	public GoogleTranslatePage(WebDriver driver) {
 		this.driver = driver;
-		//
 		PageFactory.initElements(driver, this);
 	}
 
@@ -65,7 +64,6 @@ public class GoogleTranslatePage {
 
 	/**
 	 * Change translation language to first language in panel.
-	 * 
 	 */
 	public void changLanguage() {
 		clicklistBoxLanguages();
@@ -74,7 +72,6 @@ public class GoogleTranslatePage {
 
 	/**
 	 * Set data for translation in Google Translator.
-	 * 
 	 */
 	public void setTranslateData(String dataForTranslate) throws Exception {
 		this.dataForTranslate = dataForTranslate;

@@ -8,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 public class GoogleSearchPage {
 
 	protected WebDriver driver;
-	//
+
 	@FindBy(name = "q")
 	private WebElement googleSearchField;
-	//
+
 	@FindBy(name = "btnG")
 	private WebElement googleSearchButton;
 

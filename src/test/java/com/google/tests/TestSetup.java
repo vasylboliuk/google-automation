@@ -17,8 +17,6 @@ public abstract class TestSetup {
 
 	@BeforeClass
 	public void oneTimeSetUp() {
-		// System.setProperty("webdriver.firefox.bin", "c:\\Program Files
-		// (x86)\\Mozilla Firefox\\firefox.exe");
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(TestProperties.getWaiterTimeout(), TimeUnit.SECONDS);
@@ -36,8 +34,7 @@ public abstract class TestSetup {
 
 	@AfterMethod
 	public void tearDown() {
-		driver.get(TestProperties.getGooglePageUrl()); // After method navigate
-														// to Google home page
+		driver.get(TestProperties.getGooglePageUrl());
 	}
 
 	public WebDriver getDriver() {
