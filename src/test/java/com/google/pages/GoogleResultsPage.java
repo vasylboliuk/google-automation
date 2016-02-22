@@ -20,7 +20,6 @@ public class GoogleResultsPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	// Click on result link in page
 	public void clickOnResultLinkInPage() {
 		driver.findElement(By.xpath("//div[@class='g'][1]//ancestor::h3//a")).click();
 	}
@@ -30,7 +29,6 @@ public class GoogleResultsPage {
 		return new GoogleTranslatePage(driver);
 	}
 
-	// Navigation to result page
 	public GoogleResultsPage navigateToGoogleResultPage(int pageNumber) throws Exception {
 		driver.findElement(By.xpath("//a[@class='fl' and contains(text(),'" + pageNumber + "')]")).click();
 		new WebDriverWait(driver, 5).until(ExpectedConditions
@@ -41,7 +39,6 @@ public class GoogleResultsPage {
 
 	}
 
-	// Get number of results in page
 	public int getNumberOfResults() {
 		return driver.findElements(By.xpath("//div[@class='rc']")).size();
 	}
