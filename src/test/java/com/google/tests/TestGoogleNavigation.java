@@ -30,13 +30,16 @@ public class TestGoogleNavigation extends TestSetup {
 		logger.info("Count of result links in 10 page: " + String.valueOf(countResultsPage10));
 
 		// Verification: Results of Page 2 and 10
-		new SoftAssert().assertTrue(countResultsPage2 == countResultsPage10);
+		new SoftAssert().assertEquals(countResultsPage2, countResultsPage10,
+				"Results from 2-page are not same from 10-page");
 
 		// Verification: Results of Page 1 and 10
-		new SoftAssert().assertTrue(countResultsPage1 == countResultsPage10);
+		new SoftAssert().assertEquals(countResultsPage1, countResultsPage10,
+				"Results from 1-page are not same from 10-page");
 
 		// Verification: Results of Page 1 and 2
-		new SoftAssert().assertTrue(countResultsPage1 == countResultsPage2);
+		new SoftAssert().assertEquals(countResultsPage1, countResultsPage2,
+				"Results from 1-page are not same from 2-page");
 
 		logger.info("END: Test navigation on google page.");
 
