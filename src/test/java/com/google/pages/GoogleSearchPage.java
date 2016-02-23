@@ -38,7 +38,7 @@ public class GoogleSearchPage {
 		this.googleSearchButton.click();
 	}
 
-	private void setSearchData(String searchData) throws Exception {
+	private void setSearchData(String searchData) {
 		clickSearchField();
 		clearSearchField();
 		setSearchingText(searchData);
@@ -50,7 +50,7 @@ public class GoogleSearchPage {
 	 * 
 	 * @return result page after searching.
 	 */
-	public GoogleResultsPage searchDataInGoogle(String searchData) throws Exception {
+	public GoogleResultsPage searchDataInGoogle(String searchData) {
 		setSearchData(searchData);
 		return new GoogleResultsPage(driver);
 	}

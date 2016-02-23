@@ -26,7 +26,7 @@ public class GoogleResultsPage {
 	/**
 	 * Navigate to Google Translate page
 	 */
-	public GoogleTranslatePage navigateToGoogleTranslate() throws Exception {
+	public GoogleTranslatePage navigateToGoogleTranslate() {
 		clickOnResultLinkInPage();
 		return new GoogleTranslatePage(driver);
 	}
@@ -34,7 +34,7 @@ public class GoogleResultsPage {
 	/**
 	 * Navigate to Google Result page with the given page number.
 	 */
-	public GoogleResultsPage navigateToGoogleResultPage(int pageNumber) throws Exception {
+	public GoogleResultsPage navigateToGoogleResultPage(int pageNumber) {
 		driver.findElement(By.xpath("//a[@class='fl' and contains(text(),'" + pageNumber + "')]")).click();
 		new WebDriverWait(driver, 5).until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//td[@class='cur' and contains(text(),'" + pageNumber + "')]")));

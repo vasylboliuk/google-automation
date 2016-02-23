@@ -11,8 +11,28 @@ import com.google.pages.GoogleSearchPage;
 public class TestGoogleNavigation extends TestSetup {
 	final static Logger logger = LoggerFactory.getLogger(TestGoogleNavigation.class);
 
+	/**
+	 * <b>TC-01: Test navigation on google page.</b>
+	 * 
+	 * Scenario:
+	 * <p>
+	 * <ul>
+	 * <li>1. Open Firefox browser
+	 * <li>2. Open main Google search page
+	 * <li>3. In search field type search data: "Apple"
+	 * <li>4. Get number of results from first page
+	 * <li>5. Navigate to second page -> get number of results from page
+	 * <li>6. Navigate to tenth page -> get number of result from page
+	 * <li>7. Verify number of results from second with tenth page
+	 * <li>8. Verify number of results from first with tenth page
+	 * <li>9. Verify number of results from first with second page
+	 * </ul>
+	 * <p>
+	 * Expected Result: The same number of results are displayed as on the
+	 * first, second and tenth page.
+	 */
 	@Test
-	public void googleNavigationTest() throws Exception {
+	public void googleNavigationTest() {
 		logger.info("Start: Test navigation on google page.");
 
 		GoogleSearchPage search = new GoogleSearchPage(getDriver());

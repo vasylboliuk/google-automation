@@ -73,7 +73,7 @@ public class GoogleTranslatePage {
 	/**
 	 * Set data for translation in Google Translator.
 	 */
-	public void setTranslateData(String dataForTranslate) throws Exception {
+	public void setTranslateData(String dataForTranslate) {
 		this.dataForTranslate = dataForTranslate;
 		clickLeftField();
 		setData(getDataForTranslation());

@@ -12,8 +12,25 @@ import com.google.pages.GoogleTranslatePage;
 public class TestGoogleTranslate extends TestSetup {
 	final static Logger logger = LoggerFactory.getLogger(TestGoogleTranslate.class);
 
+	/**
+	 * <b>TC-02: Test Google translate.</b>
+	 * 
+	 * Scenario:
+	 * <ul>
+	 * <li>1. Open Firefox browser
+	 * <li>2. Open main Google search page
+	 * <li>3. In search field type search data: "translate google com"
+	 * <li>4. Open first link (Google translate page)
+	 * <li>5. In left panel type data for translation "Apple"
+	 * <li>6. Verify that in right panel translated data are same.
+	 * <li>7. Get inactive languages from top right panel, click on any.
+	 * </ul>
+	 * <p>
+	 * Expected Result: Translated text was changed(doesn't equal to the text
+	 * before).
+	 */
 	@Test(groups = { "group-one" })
-	public void googleTranslateTest() throws Exception {
+	public void googleTranslateTest() {
 		logger.info("Start: Test google translate.");
 
 		GoogleSearchPage search = new GoogleSearchPage(getDriver());
